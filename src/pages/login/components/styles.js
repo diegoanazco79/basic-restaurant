@@ -17,11 +17,11 @@ export default makeStyles(() => createStyles({
     height: '100%',
   },
   languageContainer: {
-    position: 'absolute',
     display: 'flex !important',
     justifyContent: 'flex-end',
     alignItems: 'center',
     paddingTop: '0.625rem',
+    marginRight: '1.25rem !important',
   },
   loginForm: {
     display: 'flex !important',

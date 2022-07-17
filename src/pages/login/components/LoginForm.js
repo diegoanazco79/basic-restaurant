@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
-  Container,
   Typography,
   Button,
   InputAdornment,
   IconButton,
+  Grid,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Field, Formik } from 'formik';
@@ -27,11 +27,11 @@ function LoginForm({
   const srcLang = getDictionary(lang).loginForm;
 
   return (
-    <>
-      <Container className={classes.languageContainer}>
+    <Grid container direction='column' height='100%'>
+      <Grid xs={1} item className={classes.languageContainer}>
         <LanguageSelect />
-      </Container>
-      <Container className={classes.loginFormContainer}>
+      </Grid>
+      <Grid xs={11} item direction='column' className={classes.loginFormContainer}>
         <Typography variant='h1'>{srcLang.labels.title}</Typography>
         <Formik
           initialValues={loginFormInitialValues}
@@ -78,8 +78,8 @@ function LoginForm({
             </form>
           )}
         </Formik>
-      </Container>
-    </>
+      </Grid>
+    </Grid>
   );
 }
 
