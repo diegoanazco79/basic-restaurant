@@ -5,11 +5,13 @@ import Login from '../pages/login';
 
 const routes = [
   {
+    id: 'dashboard-page',
     path: '/dashboard',
     component: <Dashboard />,
     exact: true,
   },
   {
+    id: 'login-page',
     path: '/login',
     component: <Login />,
     exact: true,
