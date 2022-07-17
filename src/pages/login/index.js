@@ -1,12 +1,26 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 
+import useLogin from './hooks/useLogin';
 import useStyles from './styles';
 
+import LoginForm from './components/LoginForm';
 import Welcome from './components/Welcome';
 
 function Login() {
   const classes = useStyles();
+
+  const {
+    showPassword, loginFormValidationSchema,
+    handleClickShowPassword,
+  } = useLogin();
+
+  /* Component's props */
+  const loginFormProps = {
+    showPassword,
+    loginFormValidationSchema,
+    handleClickShowPassword,
+  };
 
   return (
     <Grid container className={classes.vwLogin}>
@@ -14,7 +28,7 @@ function Login() {
         <Welcome />
       </Grid>
       <Grid item xs={8}>
-        <span>Login</span>
+        <LoginForm {...loginFormProps} />
       </Grid>
     </Grid>
   );
