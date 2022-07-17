@@ -16,6 +16,13 @@ export default makeStyles(() => createStyles({
     alignItems: 'center',
     height: '100%',
   },
+  languageContainer: {
+    position: 'absolute',
+    display: 'flex !important',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingTop: '0.625rem',
+  },
   loginForm: {
     display: 'flex !important',
     flexDirection: 'column',
