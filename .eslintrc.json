@@ -28,6 +28,9 @@
       }
     ],
     "quotes": [2, "single", "avoid-escape"],
-    "jsx-quotes": ["warn", "prefer-single"]
+    "jsx-quotes": ["warn", "prefer-single"],
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "react/no-array-index-key": "off"
   }
 }

@@ -1,11 +1,15 @@
 import React from 'react';
-import './App.scss';
+import { Route, Routes } from 'react-router-dom';
+
+import routes from './routes';
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Restauran App</h1>
-    </div>
+    <Routes>
+      {routes.map((page) => (
+        <Route path={page.path} element={page.component} />
+      ))}
+    </Routes>
   );
 }
 
