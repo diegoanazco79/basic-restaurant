@@ -11,7 +11,7 @@ const LayoutApp = lazy(() => import('./containers/LayoutApp'));
 const PublicRoute = lazy(() => import('./routes/helpers/PublicRoutes'));
 const Login = lazy(() => import('./pages/login'));
 
-const isLogged = true; // TO DO: Integration with backend
+const isLogged = false; // TO DO: Integration with backend
 
 function App() {
   return (
