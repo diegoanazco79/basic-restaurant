@@ -6,6 +6,8 @@ import {
   InputAdornment,
   IconButton,
   Grid,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Field, Formik } from 'formik';
@@ -14,8 +16,10 @@ import { TextField } from 'formik-mui';
 import useStyles from './styles';
 import getDictionary from '../helpers/functions';
 
-import loginFormInitialValues from '../helpers/constants';
 import LanguageSelect from '../../../components/language';
+
+import loginFormInitialValues from '../helpers/constants';
+import MainImage from '../../../assets/images/login/main-logo.png';
 
 function LoginForm({
   showPassword,
@@ -23,6 +27,8 @@ function LoginForm({
   handleClickShowPassword,
 }) {
   const classes = useStyles();
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
   const lang = useSelector((state) => state.uiSettings.lang);
   const srcLang = getDictionary(lang).loginForm;
 
@@ -32,6 +38,13 @@ function LoginForm({
         <LanguageSelect />
       </Grid>
       <Grid item xs={11} className={classes.loginFormContainer}>
+        {matches && (
+          <img
+            className={classes.secondaryLogoImg}
+            src={MainImage}
+            alt='main-logo'
+          />
+        )}
         <Typography variant='h1'>{srcLang.labels.title}</Typography>
         <Formik
           initialValues={loginFormInitialValues}
@@ -62,10 +75,7 @@ function LoginForm({
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position='end'>
-                      <IconButton
-                        onClick={handleClickShowPassword}
-                        edge='end'
-                      >
+                      <IconButton onClick={handleClickShowPassword} edge='end'>
                         {showPassword ? <Visibility /> : <VisibilityOff />}
                       </IconButton>
                     </InputAdornment>

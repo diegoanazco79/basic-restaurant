@@ -1,4 +1,7 @@
 import { createStyles, makeStyles } from '@mui/styles';
+import { createTheme } from '@mui/material';
+
+const theme = createTheme();
 
 export default makeStyles(() => createStyles({
   welcomeContainer: {
@@ -30,8 +33,26 @@ export default makeStyles(() => createStyles({
     alignItems: 'center',
     marginTop: '1.875rem',
     width: '25rem',
+    [theme.breakpoints.down('md')]: {
+      width: '20rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '15rem',
+    },
     '& .MuiTextField-root': {
       marginBottom: '1.25rem',
     },
+  },
+  mainLogoImg: {
+    width: '31.25rem',
+    height: '31.25rem',
+    [theme.breakpoints.down('lg')]: {
+      width: '21.875rem',
+      height: '21.875rem',
+    },
+  },
+  secondaryLogoImg: {
+    width: '6.25rem',
+    height: '6.25rem',
   },
 }));

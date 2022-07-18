@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Grid, useMediaQuery, useTheme } from '@mui/material';
 
 import useLogin from './hooks/useLogin';
 import useStyles from './styles';
@@ -8,6 +8,8 @@ import LoginForm from './components/LoginForm';
 import Welcome from './components/Welcome';
 
 function Login() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
   const classes = useStyles();
 
   const {
@@ -24,10 +26,12 @@ function Login() {
 
   return (
     <Grid container className={classes.vwLogin}>
-      <Grid item xs={4}>
-        <Welcome />
-      </Grid>
-      <Grid item xs={8}>
+      {!matches && (
+        <Grid item xs={4}>
+          <Welcome />
+        </Grid>
+      )}
+      <Grid item xs={!matches ? 8 : 12}>
         <LoginForm {...loginFormProps} />
       </Grid>
     </Grid>

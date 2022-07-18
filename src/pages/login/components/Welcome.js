@@ -10,7 +10,7 @@ function Welcome() {
 
   return (
     <Container className={classes.welcomeContainer}>
-      <img src={MainImage} alt='main-logo' width='500' height='500' />
+      <img className={classes.mainLogoImg} src={MainImage} alt='main-logo' />
     </Container>
   );
 }
