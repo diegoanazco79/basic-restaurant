@@ -1,19 +1,21 @@
 import React from 'react';
 
-import Dashboard from '../pages/dashboard';
-import Login from '../pages/login';
+/* Private routes */
+const Dashboard = React.lazy(() => import('../pages/dashboard'));
 
 const routes = [
   {
-    id: 'dashboard-page',
-    path: '/dashboard',
-    component: <Dashboard />,
+    path: '/',
+    name: 'Home',
+    permits: [],
+    component: Dashboard,
     exact: true,
   },
   {
-    id: 'login-page',
-    path: '/login',
-    component: <Login />,
+    path: '/dashboard',
+    name: 'Dashboard',
+    permits: [],
+    component: Dashboard,
     exact: true,
   },
 ];

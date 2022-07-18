@@ -1,7 +1,7 @@
 const languageEn = {
   loginForm: {
     labels: {
-      title: 'Log In',
+      title: 'Sign in',
       emailInput: 'Email',
       passwordInput: 'Password',
     },

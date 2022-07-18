@@ -28,10 +28,10 @@ function LoginForm({
 
   return (
     <Grid container direction='column' height='100%'>
-      <Grid xs={1} item className={classes.languageContainer}>
+      <Grid item xs={1} className={classes.languageContainer}>
         <LanguageSelect />
       </Grid>
-      <Grid xs={11} item direction='column' className={classes.loginFormContainer}>
+      <Grid item xs={11} className={classes.loginFormContainer}>
         <Typography variant='h1'>{srcLang.labels.title}</Typography>
         <Formik
           initialValues={loginFormInitialValues}
