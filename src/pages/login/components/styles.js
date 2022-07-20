@@ -43,6 +43,16 @@ export default makeStyles(() => createStyles({
       marginBottom: '1.25rem',
     },
   },
+  googleForm: {
+    marginTop: '0.938rem',
+    width: '100%',
+    justifyContent: 'center',
+    '& #signInDiv': {
+      display: 'flex',
+      justifyContent: 'center',
+      marginTop: '0.625rem',
+    },
+  },
   mainLogoImg: {
     width: '31.25rem',
     height: '31.25rem',
@@ -52,7 +62,7 @@ export default makeStyles(() => createStyles({
     },
   },
   secondaryLogoImg: {
-    width: '6.25rem',
-    height: '6.25rem',
+    width: '8.25rem',
+    height: '8.25rem',
   },
 }));
