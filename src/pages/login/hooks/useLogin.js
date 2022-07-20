@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useMutation } from 'react-query';
 import * as yup from 'yup';
 
 import getDictionary from '../helpers/functions';
+import api from '../../../helpers/functions/axiosConfig';
 
 const useLogin = () => {
   const lang = useSelector((state) => state.uiSettings.lang);
@@ -29,12 +31,20 @@ const useLogin = () => {
     setShowPassword(!showPassword);
   };
 
+  /* Send a Google Token to backend */
+  const googleSign = useMutation(
+    (body) => api.post('/api/auth/google', body),
+  );
+
   /**
  * It handles the response from the Google Sign-In API.
  * @param response - The response object from the Google Sign-In API.
  */
   const handleCallbackResponse = (response) => {
-    console.log(response.credential); // TO DO: Call backend google auth endpoint
+    const body = {
+      id_token: response.credential,
+    };
+    googleSign.mutate(body);
   };
 
   /* It is used to initialize the Google  Sign-In API. */
@@ -50,7 +60,7 @@ const useLogin = () => {
       document.getElementById('signInDiv'),
       { theme: 'outline', size: 'large' },
     );
-  }, []);
+  }, []); // eslint-disable-line
 
   return {
     /* States */
