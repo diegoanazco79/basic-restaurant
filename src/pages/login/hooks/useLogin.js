@@ -1,17 +1,22 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from 'react-query';
 import * as yup from 'yup';
 
+import { loginApp } from 'store/slices/auth';
 import getDictionary from '../helpers/functions';
 import api from '../../../helpers/functions/axiosConfig';
 
 const useLogin = () => {
+  const dispatch = useDispatch();
+  const setAuthToken = (token) => dispatch(loginApp(token));
+
   const lang = useSelector((state) => state.uiSettings.lang);
   const srcLang = getDictionary(lang);
   const loginDict = srcLang.loginForm;
 
   const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState(false);
 
   const loginFormValidationSchema = yup.object().shape({
     email: yup
@@ -23,6 +28,27 @@ const useLogin = () => {
       .min(8, loginDict.warnings.passwordValid)
       .required(loginDict.warnings.passwordRequired),
   });
+
+  const loginSign = useMutation(
+    (body) => api.post('/api/auth/login', body),
+    {
+      onError: () => {
+        setLoginError(true);
+      },
+      onSuccess: (data) => {
+        setLoginError(false);
+        setAuthToken(data?.data?.token);
+      },
+    },
+  );
+
+  const submitLoginForm = (email, password) => {
+    const body = {
+      email,
+      password,
+    };
+    loginSign.mutate(body);
+  };
 
   /**
  * It toggles the showPassword state variable.
@@ -66,12 +92,14 @@ const useLogin = () => {
     /* States */
     showPassword,
     loginFormValidationSchema,
+    loginError,
+    loginSign,
 
     /* States functions */
 
     /* Functions */
     handleClickShowPassword,
-
+    submitLoginForm,
   };
 };
 

@@ -13,15 +13,18 @@ function Login() {
   const classes = useStyles();
 
   const {
-    showPassword, loginFormValidationSchema,
-    handleClickShowPassword,
+    showPassword, loginFormValidationSchema, loginSign, loginError,
+    handleClickShowPassword, submitLoginForm,
   } = useLogin();
 
   /* Component's props */
   const loginFormProps = {
     showPassword,
     loginFormValidationSchema,
+    loginSign,
+    loginError,
     handleClickShowPassword,
+    submitLoginForm,
   };
 
   return (

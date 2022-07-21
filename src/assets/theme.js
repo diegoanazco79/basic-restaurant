@@ -35,6 +35,13 @@ const theme = createTheme({
     fontFamily: ['Montserrat'].join(','),
   },
   components: {
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          color: '#D32F2F',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

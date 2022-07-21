@@ -1,4 +1,7 @@
-import React, { Suspense, lazy } from 'react';
+import React, {
+  Suspense, lazy, useState, useEffect,
+} from 'react';
+import { useSelector } from 'react-redux';
 import { Switch } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 
@@ -10,9 +13,15 @@ const LayoutApp = lazy(() => import('./containers/LayoutApp'));
 const PublicRoute = lazy(() => import('./routes/helpers/PublicRoutes'));
 const Login = lazy(() => import('./pages/login'));
 
-const isLogged = false; // TO DO: Integration with backend
-
 function App() {
+  const currentToken = useSelector((state) => state.auth.token);
+  const [isLogged, setIsLogged] = useState(currentToken !== '');
+
+  useEffect(() => {
+    if (currentToken !== '') setIsLogged(true);
+    else setIsLogged(false);
+  }, [currentToken]);
+
   return (
     <Suspense fallback={<CircularProgress />}>
       <Switch>

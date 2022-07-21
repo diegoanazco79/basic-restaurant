@@ -43,6 +43,9 @@ export default makeStyles(() => createStyles({
       marginBottom: '1.25rem',
     },
   },
+  passwordInput: {
+    marginBottom: '0.5rem !important',
+  },
   googleForm: {
     marginTop: '0.938rem',
     width: '100%',

@@ -10,6 +10,7 @@ import {
   useMediaQuery,
   Divider,
   Box,
+  FormHelperText,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Field, Formik } from 'formik';
@@ -26,13 +27,17 @@ import useStyles from './styles';
 function LoginForm({
   showPassword,
   loginFormValidationSchema,
+  loginSign,
+  loginError,
   handleClickShowPassword,
+  submitLoginForm,
 }) {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
   const lang = useSelector((state) => state.uiSettings.lang);
   const srcLang = getDictionary(lang).loginForm;
+  const loadingLogin = loginSign.isLoading;
 
   return (
     <Grid container direction='column' height='100%'>
@@ -54,14 +59,15 @@ function LoginForm({
               initialValues={loginFormInitialValues}
               validationSchema={loginFormValidationSchema}
               onSubmit={(values, { setSubmitting, resetForm }) => {
+                submitLoginForm(values.email, values.password);
                 setSubmitting(false);
                 resetForm({ values: loginFormInitialValues });
               }}
             >
-              {({ isSubmitting, handleSubmit }) => (
+              {({ handleSubmit }) => (
                 <form className={classes.loginForm} onSubmit={handleSubmit}>
                   <Field
-                    disabled={isSubmitting}
+                    disabled={loadingLogin}
                     label={srcLang.labels.emailInput}
                     size='small'
                     fullWidth
@@ -69,7 +75,8 @@ function LoginForm({
                     component={TextField}
                   />
                   <Field
-                    disabled={isSubmitting}
+                    className={classes.passwordInput}
+                    disabled={loadingLogin}
                     label={srcLang.labels.passwordInput}
                     size='small'
                     fullWidth
@@ -86,7 +93,12 @@ function LoginForm({
                       ),
                     }}
                   />
-                  <Button type='submit' disabled={isSubmitting} variant='contained'>
+                  {loginError && (
+                    <FormHelperText>
+                      {srcLang.warnings.loginError}
+                    </FormHelperText>
+                  )}
+                  <Button type='submit' disabled={loadingLogin} variant='contained'>
                     {srcLang.buttons.logIn}
                   </Button>
                 </form>
@@ -95,7 +107,7 @@ function LoginForm({
           </Box>
           <Box className={classes.googleForm}>
             <Divider>
-              <Typography variant='body2'>O</Typography>
+              <Typography variant='body2'>{srcLang.labels.or}</Typography>
             </Divider>
             <div id='signInDiv' />
           </Box>
