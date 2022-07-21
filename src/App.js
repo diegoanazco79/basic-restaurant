@@ -1,6 +1,4 @@
-import React, {
-  Suspense, lazy, useState, useEffect,
-} from 'react';
+import React, { Suspense, lazy } from 'react';
 import { useSelector } from 'react-redux';
 import { Switch } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
@@ -15,12 +13,7 @@ const Login = lazy(() => import('./pages/login'));
 
 function App() {
   const currentToken = useSelector((state) => state.auth.token);
-  const [isLogged, setIsLogged] = useState(currentToken !== '');
-
-  useEffect(() => {
-    if (currentToken !== '') setIsLogged(true);
-    else setIsLogged(false);
-  }, [currentToken]);
+  const isLogged = currentToken;
 
   return (
     <Suspense fallback={<CircularProgress />}>

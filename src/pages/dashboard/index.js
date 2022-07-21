@@ -11,7 +11,7 @@ function Dashboard() {
   const setAuthToken = (token) => dispatch(logoutSession(token));
 
   return (
-    <Button onClick={() => { history.push('/login'); setAuthToken(''); }}>Logout</Button>
+    <Button onClick={() => { history.push('/login'); setAuthToken(null); }}>Logout</Button>
   );
 }
 
