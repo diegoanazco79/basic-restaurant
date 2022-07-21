@@ -4,6 +4,7 @@ const languageEs = {
       title: 'Iniciar Sesión',
       emailInput: 'Correo Electrónico',
       passwordInput: 'Contraseña',
+      or: 'O',
     },
     buttons: {
       logIn: 'Ingresar',
@@ -13,6 +14,7 @@ const languageEs = {
       emailRequired: 'Debes ingresar un correo electrónico',
       passwordValid: 'La contraseña debe tener una longitud mínima de 8 caracteres',
       passwordRequired: 'Debes ingresar una contraseña',
+      loginError: '¡Correo electrónico o contraseña incorrectos!',
     },
   },
 };
