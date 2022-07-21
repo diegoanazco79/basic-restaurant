@@ -1,9 +1,8 @@
 import React from 'react';
 import { Container } from '@mui/material';
 
+import MainImage from 'assets/images/login/main-logo.png';
 import useStyles from './styles';
-
-import MainImage from '../../../assets/images/login/main-logo.png';
 
 function Welcome() {
   const classes = useStyles();

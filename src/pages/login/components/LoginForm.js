@@ -15,13 +15,13 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Field, Formik } from 'formik';
 import { TextField } from 'formik-mui';
 
-import useStyles from './styles';
-import getDictionary from '../helpers/functions';
-
-import LanguageSelect from '../../../components/language';
+import LanguageSelect from 'components/language';
+import MainImage from 'assets/images/login/main-logo.png';
 
 import loginFormInitialValues from '../helpers/constants';
-import MainImage from '../../../assets/images/login/main-logo.png';
+
+import getDictionary from '../helpers/functions';
+import useStyles from './styles';
 
 function LoginForm({
   showPassword,

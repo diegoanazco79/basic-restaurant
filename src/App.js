@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react';
 import { Switch } from 'react-router-dom';
-
 import { CircularProgress } from '@mui/material';
 
 /* Private (Routes and Pages) */
