@@ -6,8 +6,8 @@ import { logoutSession } from 'store/slices/auth';
 import { useHistory } from 'react-router-dom';
 
 function Dashboard() {
-  const dispatch = useDispatch();
   const history = useHistory();
+  const dispatch = useDispatch();
   const setAuthToken = (token) => dispatch(logoutSession(token));
 
   return (

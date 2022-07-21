@@ -62,6 +62,16 @@ const useLogin = () => {
   /* Send a Google Token to backend */
   const googleSign = useMutation(
     (body) => api.post('/api/auth/google', body),
+    {
+      onError: () => {
+        setLoginError(true);
+      },
+      onSuccess: (data) => {
+        setLoginError(false);
+        setAuthToken(data?.data?.token);
+        setAuthUser(data?.data?.user);
+      },
+    },
   );
 
   /**
