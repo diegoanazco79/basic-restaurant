@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useMutation } from 'react-query';
 import * as yup from 'yup';
 
-import { loginApp } from 'store/slices/auth';
+import { loginToken, loginUser } from 'store/slices/auth';
 import getDictionary from '../helpers/functions';
 import api from '../../../helpers/functions/axiosConfig';
 
 const useLogin = () => {
   const dispatch = useDispatch();
-  const setAuthToken = (token) => dispatch(loginApp(token));
+  const setAuthToken = (token) => dispatch(loginToken(token));
+  const setAuthUser = (user) => dispatch(loginUser(user));
 
   const lang = useSelector((state) => state.uiSettings.lang);
   const srcLang = getDictionary(lang);
@@ -38,6 +39,7 @@ const useLogin = () => {
       onSuccess: (data) => {
         setLoginError(false);
         setAuthToken(data?.data?.token);
+        setAuthUser(data?.data?.user);
       },
     },
   );
