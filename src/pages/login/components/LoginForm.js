@@ -54,7 +54,7 @@ function LoginForm({
                 alt='main-logo'
               />
             )}
-            <Typography align='center' variant='h1'>{srcLang.labels.title}</Typography>
+            <Typography align='center' variant='headerLarge'>{srcLang.labels.title}</Typography>
             <Formik
               initialValues={loginFormInitialValues}
               validationSchema={loginFormValidationSchema}
@@ -98,7 +98,7 @@ function LoginForm({
                       {srcLang.warnings.loginError}
                     </FormHelperText>
                   )}
-                  <Button type='submit' disabled={loadingLogin} variant='contained'>
+                  <Button type='submit' disabled={loadingLogin} variant='primary'>
                     {srcLang.buttons.logIn}
                   </Button>
                 </form>

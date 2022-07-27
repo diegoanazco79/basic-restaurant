@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, useMediaQuery, useTheme } from '@mui/material';
 
 import useLogin from './hooks/useLogin';
-import useStyles from './styles';
 
 import LoginForm from './components/LoginForm';
 import Welcome from './components/Welcome';
@@ -10,7 +9,6 @@ import Welcome from './components/Welcome';
 function Login() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
-  const classes = useStyles();
 
   const {
     showPassword, loginFormValidationSchema, loginSign, loginError,
@@ -28,7 +26,7 @@ function Login() {
   };
 
   return (
-    <Grid container className={classes.vwLogin}>
+    <Grid container height='100vh' bgcolor={theme.palette.light.main}>
       {!matches && (
         <Grid item xs={4}>
           <Welcome />
