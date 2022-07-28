@@ -1,9 +1,9 @@
 import React from 'react';
-import {
-  Box, Button, Typography, useTheme,
-} from '@mui/material';
-import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import {
+  Button, Typography, useTheme, Box,
+} from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 import ThemeSwitch from 'components/themeSwitch';
@@ -20,7 +20,7 @@ function Dashboard() {
   const setAuthToken = (token) => dispatch(logoutSession(token));
 
   return (
-    <Box height='100vh' bgcolor={mainColor}>
+    <Box height='100vh' bgcolor={mainColor} padding='1rem'>
       <Button
         onClick={() => {
           history.push('/login');

@@ -42,28 +42,30 @@ const darkTheme = createTheme({
   components: {
     MuiButton: {
       ...customButton,
-      variants: [{
-        props: { variant: 'primary' },
-        style: {
-          fontWeight: '600',
-          color: customPallete.dark.pureWhite,
-          backgroundColor: customPallete.dark.mainGreen,
-          '&:hover': {
-            backgroundColor: customPallete.dark.secondaryGreen,
+      variants: [
+        {
+          props: { variant: 'primary' },
+          style: {
+            fontWeight: '600',
+            color: customPallete.dark.pureWhite,
+            backgroundColor: customPallete.dark.mainGreen,
+            '&:hover': {
+              backgroundColor: customPallete.dark.secondaryGreen,
+            },
           },
         },
-      },
-      {
-        props: { variant: 'secondary' },
-        style: {
-          fontWeight: '600',
-          color: customPallete.dark.pureWhite,
-          backgroundColor: customPallete.dark.mainGray,
-          '&:hover': {
-            backgroundColor: customPallete.dark.secondaryGray,
+        {
+          props: { variant: 'secondary' },
+          style: {
+            fontWeight: '600',
+            color: customPallete.dark.pureWhite,
+            backgroundColor: customPallete.dark.mainGray,
+            '&:hover': {
+              backgroundColor: customPallete.dark.secondaryGray,
+            },
           },
         },
-      }],
+      ],
     },
     MuiInputBase: customInput,
     MuiInputLabel: customInputLabel,
@@ -75,6 +77,26 @@ const darkTheme = createTheme({
           color: customPallete.light.pureWhite,
           '&:hover': {
             backgroundColor: customPallete.dark.secondaryGray,
+          },
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: customPallete.dark.main,
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        root: {
+          '& .MuiDrawer-paper': {
+            width: '15rem',
+            boxSizing: 'border-box',
+            backgroundColor: customPallete.dark.main,
+            boxShadow:
+              '0 0.188rem 0.25rem -0.063rem rgba(0,0,0,.2),0 0.25rem 0.5rem 0 rgba(0,0,0,.14),0 0.063rem 0.875rem 0 rgba(0,0,0,.12)',
           },
         },
       },
