@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconButton } from '@mui/material';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 
 import useThemeSwitch from './hooks/useThemeSwitch';
 
@@ -10,7 +10,7 @@ function ThemeSwitch() {
 
   return (
     <IconButton onClick={() => handleChange()}>
-      {currentTheme === 'light' ? <LightModeIcon /> : <DarkModeIcon /> }
+      {currentTheme === 'light' ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon /> }
     </IconButton>
   );
 }

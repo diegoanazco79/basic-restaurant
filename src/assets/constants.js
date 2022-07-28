@@ -3,7 +3,7 @@ export const customPallete = {
     main: '#1E1D1E',
     mainLight: '#F1F5F9',
     mainText: '#FFFFFF',
-    pureWhite: '#FFFFFF',
+    pureWhite: '#E9EBED',
     mainGreen: '#055C43',
     secondaryGreen: '#056D4F',
     mainGray: '#3D3F41',

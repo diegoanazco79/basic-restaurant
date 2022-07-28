@@ -51,6 +51,9 @@ const lightTheme = createTheme({
           '&:hover': {
             backgroundColor: customPallete.light.secondaryBlue,
           },
+          '& .MuiSvgIcon-root': {
+            color: customPallete.light.pureWhite,
+          },
         },
       },
       {
@@ -62,6 +65,9 @@ const lightTheme = createTheme({
           '&:hover': {
             backgroundColor: customPallete.light.secondaryGray,
           },
+          '& .MuiSvgIcon-root': {
+            color: customPallete.light.mainBlue,
+          },
         },
       }],
     },
@@ -69,6 +75,13 @@ const lightTheme = createTheme({
     MuiInputLabel: customInputLabel,
     MuiDivider: customDivider,
     MuiFormHelperText: customWarnings,
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: customPallete.light.mainBlue,
+        },
+      },
+    },
   },
 });
 

@@ -16,11 +16,11 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Field, Formik } from 'formik';
 import { TextField } from 'formik-mui';
 
-import LanguageSelect from 'components/language';
 import MainImage from 'assets/images/login/main-logo.png';
 
-import loginFormInitialValues from '../helpers/constants';
+import LanguageSelect from 'components/language';
 
+import loginFormInitialValues from '../helpers/constants';
 import getDictionary from '../helpers/functions';
 import useStyles from './styles';
 

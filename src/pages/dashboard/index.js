@@ -4,6 +4,7 @@ import {
 } from '@mui/material';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 import ThemeSwitch from 'components/themeSwitch';
 
@@ -47,10 +48,10 @@ function Dashboard() {
       <Typography paragraph variant='caption'>
         Caption
       </Typography>
-      <Button variant='primary'>
+      <Button variant='primary' startIcon={<DarkModeIcon />}>
         Primary
       </Button>
-      <Button variant='secondary'>
+      <Button variant='secondary' endIcon={<DarkModeIcon />}>
         Secondary
       </Button>
     </Box>

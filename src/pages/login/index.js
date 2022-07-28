@@ -1,5 +1,9 @@
 import React from 'react';
-import { Grid, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Grid, ThemeProvider, useMediaQuery, useTheme,
+} from '@mui/material';
+
+import lightTheme from 'assets/lightTheme';
 
 import useLogin from './hooks/useLogin';
 
@@ -26,16 +30,18 @@ function Login() {
   };
 
   return (
-    <Grid container height='100vh' bgcolor={theme.palette.light.main}>
-      {!matches && (
-        <Grid item xs={4}>
-          <Welcome />
+    <ThemeProvider theme={lightTheme}>
+      <Grid container height='100vh' bgcolor={theme.palette.dark.mainLight}>
+        {!matches && (
+          <Grid item xs={4}>
+            <Welcome />
+          </Grid>
+        )}
+        <Grid item xs={!matches ? 8 : 12}>
+          <LoginForm {...loginFormProps} />
         </Grid>
-      )}
-      <Grid item xs={!matches ? 8 : 12}>
-        <LoginForm {...loginFormProps} />
       </Grid>
-    </Grid>
+    </ThemeProvider>
   );
 }
 

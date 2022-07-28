@@ -69,6 +69,16 @@ const darkTheme = createTheme({
     MuiInputLabel: customInputLabel,
     MuiDivider: customDivider,
     MuiFormHelperText: customWarnings,
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: customPallete.light.pureWhite,
+          '&:hover': {
+            backgroundColor: customPallete.dark.secondaryGray,
+          },
+        },
+      },
+    },
   },
 });
 
