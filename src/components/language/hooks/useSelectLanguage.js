@@ -10,9 +10,9 @@ const useSelectLanguage = () => {
   const [language, setLanguage] = useState(lang);
   const setLangCode = (langCode) => dispatch(toggleLanguage(langCode));
 
-  const handleChange = (event) => {
-    setLanguage(event.target.value);
-    setLangCode(event.target.value);
+  const handleChange = () => {
+    setLanguage(lang === 'es' ? 'en' : 'es');
+    setLangCode(lang === 'es' ? 'en' : 'es');
   };
 
   return {

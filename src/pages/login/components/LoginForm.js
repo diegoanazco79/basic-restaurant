@@ -16,12 +16,14 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Field, Formik } from 'formik';
 import { TextField } from 'formik-mui';
 
-import LanguageSelect from 'components/language';
 import MainImage from 'assets/images/login/main-logo.png';
 
-import loginFormInitialValues from '../helpers/constants';
+import LanguageSelect from 'components/language';
 
-import getDictionary from '../helpers/functions';
+import getDictionary from 'helpers/functions/dictionaryConfig';
+import languageEn from '../helpers/dictionary/languageEn';
+import languageEs from '../helpers/dictionary/languageEs';
+import loginFormInitialValues from '../helpers/constants';
 import useStyles from './styles';
 
 function LoginForm({
@@ -36,7 +38,7 @@ function LoginForm({
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
   const lang = useSelector((state) => state.uiSettings.lang);
-  const srcLang = getDictionary(lang).loginForm;
+  const srcLang = getDictionary(lang, languageEn, languageEs).loginForm;
   const loadingLogin = loginSign.isLoading;
 
   return (
@@ -54,7 +56,7 @@ function LoginForm({
                 alt='main-logo'
               />
             )}
-            <Typography align='center' variant='h1'>{srcLang.labels.title}</Typography>
+            <Typography align='center' variant='headerLarge'>{srcLang.labels.title}</Typography>
             <Formik
               initialValues={loginFormInitialValues}
               validationSchema={loginFormValidationSchema}
@@ -98,7 +100,7 @@ function LoginForm({
                       {srcLang.warnings.loginError}
                     </FormHelperText>
                   )}
-                  <Button type='submit' disabled={loadingLogin} variant='contained'>
+                  <Button type='submit' disabled={loadingLogin} variant='primary'>
                     {srcLang.buttons.logIn}
                   </Button>
                 </form>

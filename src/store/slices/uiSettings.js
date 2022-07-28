@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  darkMode: JSON.parse(localStorage.getItem('darkmode')) ?? true,
+  theme: JSON.parse(localStorage.getItem('theme')) || 'light',
   lang: JSON.parse(localStorage.getItem('lang')) || 'en',
 };
 
@@ -10,8 +10,8 @@ export const uiSettingsSlice = createSlice({
   initialState,
   reducers: {
     toggleDarkMode: (state, { payload }) => {
-      localStorage.setItem('darkmode', JSON.stringify(payload));
-      return { ...state, darkMode: payload };
+      localStorage.setItem('theme', JSON.stringify(payload));
+      return { ...state, theme: payload };
     },
     toggleLanguage: (state, { payload }) => {
       localStorage.setItem('lang', JSON.stringify(payload));

@@ -8,10 +8,7 @@ import routes from '../routes';
 function ContentApp() {
   return (
     <Suspense fallback={<CircularProgress />}>
-      <Box
-        component='main'
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-      >
+      <Box component='main' sx={{ flexGrow: 1 }}>
         <Toolbar />
         <Switch>
           {routes.map((route, idx) => (
