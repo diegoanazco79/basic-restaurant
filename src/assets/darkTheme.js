@@ -46,11 +46,21 @@ const darkTheme = createTheme({
         props: { variant: 'primary' },
         style: {
           fontWeight: '600',
-          color: 'red',
-          backgroundColor: 'red',
+          color: customPallete.dark.pureWhite,
+          backgroundColor: customPallete.dark.mainGreen,
           '&:hover': {
-            backgroundColor: 'red',
-            color: 'red',
+            backgroundColor: customPallete.dark.secondaryGreen,
+          },
+        },
+      },
+      {
+        props: { variant: 'secondary' },
+        style: {
+          fontWeight: '600',
+          color: customPallete.dark.pureWhite,
+          backgroundColor: customPallete.dark.mainGray,
+          '&:hover': {
+            backgroundColor: customPallete.dark.secondaryGray,
           },
         },
       }],

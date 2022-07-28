@@ -47,6 +47,12 @@ function Dashboard() {
       <Typography paragraph variant='caption'>
         Caption
       </Typography>
+      <Button variant='primary'>
+        Primary
+      </Button>
+      <Button variant='secondary'>
+        Secondary
+      </Button>
     </Box>
   );
 }

@@ -46,11 +46,21 @@ const lightTheme = createTheme({
         props: { variant: 'primary' },
         style: {
           fontWeight: '600',
-          color: 'green',
-          backgroundColor: 'green',
+          color: customPallete.light.pureWhite,
+          backgroundColor: customPallete.light.mainBlue,
           '&:hover': {
-            backgroundColor: 'green',
-            color: 'green',
+            backgroundColor: customPallete.light.secondaryBlue,
+          },
+        },
+      },
+      {
+        props: { variant: 'secondary' },
+        style: {
+          fontWeight: '600',
+          color: customPallete.light.mainDark,
+          backgroundColor: customPallete.light.mainGray,
+          '&:hover': {
+            backgroundColor: customPallete.light.secondaryGray,
           },
         },
       }],

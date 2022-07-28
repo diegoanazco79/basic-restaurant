@@ -1,16 +1,23 @@
 export const customPallete = {
   dark: {
     main: '#1E1D1E',
+    mainLight: '#F1F5F9',
     mainText: '#FFFFFF',
+    pureWhite: '#FFFFFF',
+    mainGreen: '#055C43',
+    secondaryGreen: '#056D4F',
+    mainGray: '#3D3F41',
+    secondaryGray: '#37393B',
   },
   light: {
     main: '#F1F5F9',
+    mainDark: '#1E1D1E',
+    mainBlue: '#1D2942',
+    secondaryBlue: '#263657',
+    mainGray: '#DADDE0',
+    secondaryGray: '#D0D3D6',
     mainText: '#111827',
-    mainLight: '#f1f5f9',
-    secondaryBlue: '#1D2432',
     pureWhite: '#FFFFFF',
-    lightColor: 'rgba(255, 255, 255, 0.9)',
-    warning: '#D32F2F',
   },
   warning: {
     main: '#D32F2F',
