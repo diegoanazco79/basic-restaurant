@@ -1,24 +1,23 @@
 import React from 'react';
-import { MenuItem, Select } from '@mui/material';
+import { Button, Typography } from '@mui/material';
+import LanguageIcon from '@mui/icons-material/Language';
 
 import useSelectLanguage from './hooks/useSelectLanguage';
-import useStyles from './style';
 
 function LanguageSelect() {
-  const classes = useStyles();
-
   const { language, handleChange } = useSelectLanguage();
 
   return (
-    <Select
-      defaultValue='es'
-      value={language}
-      className={classes.selectLanguage}
-      onChange={handleChange}
+    <Button
+      onClick={() => handleChange()}
+      sx={{ backgroundColor: 'transparent' }}
+      variant='secondary'
+      startIcon={<LanguageIcon />}
     >
-      <MenuItem value='es'>ES</MenuItem>
-      <MenuItem value='en'>EN</MenuItem>
-    </Select>
+      <Typography variant='caption'>
+        {language === 'es' ? 'ES' : 'EN'}
+      </Typography>
+    </Button>
   );
 }
 

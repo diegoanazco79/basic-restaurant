@@ -20,8 +20,10 @@ import MainImage from 'assets/images/login/main-logo.png';
 
 import LanguageSelect from 'components/language';
 
+import getDictionary from 'helpers/functions/dictionaryConfig';
+import languageEn from '../helpers/dictionary/languageEn';
+import languageEs from '../helpers/dictionary/languageEs';
 import loginFormInitialValues from '../helpers/constants';
-import getDictionary from '../helpers/functions';
 import useStyles from './styles';
 
 function LoginForm({
@@ -36,7 +38,7 @@ function LoginForm({
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
   const lang = useSelector((state) => state.uiSettings.lang);
-  const srcLang = getDictionary(lang).loginForm;
+  const srcLang = getDictionary(lang, languageEn, languageEs).loginForm;
   const loadingLogin = loginSign.isLoading;
 
   return (

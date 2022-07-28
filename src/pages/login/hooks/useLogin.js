@@ -4,8 +4,12 @@ import { useMutation } from 'react-query';
 import * as yup from 'yup';
 
 import { loginToken, loginUser } from 'store/slices/auth';
-import getDictionary from '../helpers/functions';
-import api from '../../../helpers/functions/axiosConfig';
+
+import getDictionary from 'helpers/functions/dictionaryConfig';
+import api from 'helpers/functions/axiosConfig';
+
+import languageEn from '../helpers/dictionary/languageEn';
+import languageEs from '../helpers/dictionary/languageEs';
 
 const useLogin = () => {
   const dispatch = useDispatch();
@@ -13,7 +17,7 @@ const useLogin = () => {
   const setAuthUser = (user) => dispatch(loginUser(user));
 
   const lang = useSelector((state) => state.uiSettings.lang);
-  const srcLang = getDictionary(lang);
+  const srcLang = getDictionary(lang, languageEn, languageEs);
   const loginDict = srcLang.loginForm;
 
   const [showPassword, setShowPassword] = useState(false);
